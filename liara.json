@@ -1,0 +1,28 @@
+{
+    "php": {
+      "version": "8.2",
+      "extensions": ["pdo_mysql", "mbstring", "openssl", "tokenizer", "xml", "ctype", "json", "bcmath"],
+      "ini": {
+        "memory_limit": "256M",
+        "upload_max_filesize": "50M",
+        "post_max_size": "50M"
+      }
+    },
+    "deploy": {
+      "before": [
+        "composer install --no-dev --optimize-autoloader",
+        "php artisan optimize:clear",
+        "php artisan config:cache",
+        "php artisan route:cache",
+        "php artisan view:cache"
+      ],
+      "after": [
+        "php artisan storage:link",
+        "php artisan migrate --force"
+      ]
+    },
+    "web": {
+      "document_root": "/public",
+      "passthru": "/index.php"
+    }
+  }
