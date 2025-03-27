@@ -21,17 +21,7 @@ class AuthController extends Controller
         return view("Dashboard");
     }
 
-    public function createAdmin()
-    {
-        Admin::create([
-            "name" => "moein",
-            "age" => 22,
-            "email" => "fadakarmoein39@gmail.com",
-            "password" => bcrypt("moeinfadakar"),
-            "address" => "dcsscd",
-            "type" => "manager"
-        ]);
-    }
+   
 
     public function login(AuthRequest $request)  
     {  
