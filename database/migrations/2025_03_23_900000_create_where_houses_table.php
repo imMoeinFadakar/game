@@ -20,7 +20,7 @@ return new class extends Migration
             ->cascadeOnUpdate();
 
             $table->foreignId("where_house_id")
-            ->constrained("wherehouse_levels")
+            ->constrained("where_house_levels")
             ->cascadeOnDelete()
             ->cascadeOnUpdate();
 
