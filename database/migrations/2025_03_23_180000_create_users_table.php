@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->foreignId("where_house_id")
             ->references("id")
-            ->on("wherehouses")
+            ->on("where_houses")
             ->cascadeOnDelete()
             ->cascadeOnUpdate();  
 
