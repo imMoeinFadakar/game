@@ -17,28 +17,29 @@ return new class extends Migration
            
             $table->string('name');
             $table->string('username')->unique();
+
+            $table->unsignedBigInteger("where_house_amount");
+
             $table->foreignId("where_house_id")
-            ->references("id")
-            ->on("where_houses")
+            ->constrained("where_house_levels")
             ->cascadeOnDelete()
-            ->cascadeOnUpdate();  
+            ->cascadeOnUpdate();
 
             $table->enum("status", ["active","banned"])->default("active");
             
             $table->uuid("reffral_code");
-            $table->foreignId("wallet_id")
-            ->references("id")
-            ->on("wallets")
-            ->onDelete("cascade")
-            ->onUpdate("cascade");
+
+            $table->unsignedBigInteger("wallet_amount");
+
 
             $table->uuid("avatar_id");
+            
             $table->foreignId("wallet_id")
             ->references("id")
             ->on("avatars")
             ->onDelete("cascade")
             ->onUpdate("cascade");
-            
+
             $table->timestamps();
         });
     }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('wherehouse_products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("wheerhouse_id")
-            ->constrained("wherehouse")
+            $table->foreignId("user_id")
+            ->constrained("users")
             ->cascadeOnDelete()
             ->cascadeOnUpdate();
             
