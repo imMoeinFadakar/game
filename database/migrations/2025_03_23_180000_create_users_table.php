@@ -32,7 +32,13 @@ return new class extends Migration
             ->onDelete("cascade")
             ->onUpdate("cascade");
 
-            $table->unsignedBigInteger("avatar_id");
+            $table->uuid("avatar_id");
+            $table->foreignId("wallet_id")
+            ->references("id")
+            ->on("avatars")
+            ->onDelete("cascade")
+            ->onUpdate("cascade");
+            
             $table->timestamps();
         });
     }
