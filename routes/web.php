@@ -18,7 +18,7 @@ use App\Http\Controllers\AuthController;
 Route::get("/", [App\Http\Controllers\AuthController::class,"showLoginPage"]);
 Route::post('/login', [AuthController::class, 'login'])->name('login');  
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');  
-
+Route::get('/create', [AuthController::class,'create'])->name('');
 // Route::get('admin/dashboard', [App\Http\Controllers\AuthController::class,"showDashboard"])->middleware('admin');  
 
 Route::prefix("admin")->middleware("admin")->group(function () {
